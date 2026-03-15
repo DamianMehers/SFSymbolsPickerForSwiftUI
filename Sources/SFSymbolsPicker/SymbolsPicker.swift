@@ -96,10 +96,12 @@ public struct SymbolsPicker<Content: View>: View {
                         }
                         .scrollIndicators(.hidden)
                         .scrollDisabled(false)
+                        #if !os(tvOS)
                         .simultaneousGesture(
                             DragGesture(minimumDistance: 10)
                                 .onChanged { _ in }
                         )
+                        #endif
                         #if !os(visionOS)
                         .scrollDismissesKeyboard(.immediately)
                         #endif
